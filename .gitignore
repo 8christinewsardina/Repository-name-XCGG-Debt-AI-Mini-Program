@@ -1,0 +1,13 @@
+﻿# Python
+__pycache__/
+*.pyc
+
+# Virtualenvs
+.venv/
+backend/app/.venv/
+venv/
+env/
+
+# Logs
+*.log
+backend/logs/
