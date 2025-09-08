@@ -1,0 +1,48 @@
+<!--pages/form/form.wxml-->
+<view class="form-container">
+  <view class="header">
+    <text class="title">财务信息填报</text>
+    <text class="subtitle">请提供您的基本财务信息，以便AI进行分析</text>
+  </view>
+
+  <form bindsubmit="submitForm">
+    <!-- 资产部分 -->
+    <view class="form-group">
+      <view class="group-title">
+        <text>总资产 (元)</text>
+      </view>
+      <input name="assets" type="digit" placeholder="例如：房产、存款、股票等总价值" class="input-field"/>
+    </view>
+
+    <!-- 负债部分 -->
+    <view class="form-group">
+      <view class="group-title">
+        <text>总负债 (元)</text>
+      </view>
+      <input name="liabilities" type="digit" placeholder="例如：房贷、车贷、信用卡欠款等总额" class="input-field"/>
+    </view>
+
+    <!-- 收入部分 -->
+    <view class="form-group">
+      <view class="group-title">
+        <text>月均收入 (元)</text>
+      </view>
+      <input name="income" type="digit" placeholder="税后月收入总和" class="input-field"/>
+    </view>
+
+    <!-- 支出部分 -->
+    <view class="form-group">
+      <view class="group-title">
+        <text>月均支出 (元)</text>
+      </view>
+      <input name="expenses" type="digit" placeholder="每月生活、还款等必要开销" class="input-field"/>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button class="submit-button" form-type="submit">提交分析</button>
+  </form>
+
+  <view class="disclaimer">
+    <text>您的数据将经过加密处理，请放心填写</text>
+  </view>
+</view>

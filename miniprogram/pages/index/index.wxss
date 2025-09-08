@@ -1,0 +1,86 @@
+/* pages/index/index.wxss */
+
+page {
+  height: 100%;
+  background-color: #FFFFFF;
+  color: #2D3748; /* 深蓝灰色 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  text-align: left;
+  padding-top: 20rpx;
+}
+
+.app-name {
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.dial {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  border: 20rpx solid #E2E8F0; /* 浅灰色底 */
+  border-top-color: #38A169; /* 松石绿 */
+  animation: spin 1.5s linear infinite;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dashboard-text {
+  font-size: 32rpx;
+  color: #4A5568; /* 次级灰色 */
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #2D3748; /* 深蓝灰色 */
+  color: #FFFFFF;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+  transition: background-color 0.3s;
+}
+
+.start-button:active {
+  background-color: #38A169; /* 松石绿 */
+}
+
+.disclaimer {
+  font-size: 24rpx;
+  color: #A0AEC0; /* 更浅的灰色 */
+}

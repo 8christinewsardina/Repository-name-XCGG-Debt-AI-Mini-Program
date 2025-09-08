@@ -1,0 +1,21 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="app-name">AI 财务顾问</text>
+  </view>
+
+  <view class="dashboard">
+    <view class="dial">
+      <view class="indicator"></view>
+    </view>
+    <text class="dashboard-text">准备就绪，开始分析您的财务状况</text>
+  </view>
+
+    <view class="footer">
+    <button class="start-button" bindtap="startAnalysis">开始分析</button>
+    <button class="settings-button" bindtap="openSettings">设置</button>
+    <view class="disclaimer">
+      <text>所有内容仅供参考，不构成专业建议</text>
+    </view>
+  </view>
+</view>

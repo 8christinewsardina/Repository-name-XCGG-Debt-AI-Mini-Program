@@ -1,0 +1,15 @@
+{
+  "pages": [
+  "pages/index/index",
+  "pages/form/form",
+  "pages/settings/settings"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "AI 财务顾问",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

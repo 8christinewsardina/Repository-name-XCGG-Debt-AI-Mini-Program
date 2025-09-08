@@ -1,0 +1,4 @@
+# Optional dependencies for production integrations
+# Install only if you plan to use the service
+pinecone-client
+chromadb
