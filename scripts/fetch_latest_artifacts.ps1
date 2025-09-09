@@ -8,24 +8,37 @@ $now = Get-Date -Format "yyyyMMdd-HHmmss"
 $dest = Join-Path -Path (Get-Location) -ChildPath "gh_artifacts_$now"
 New-Item -ItemType Directory -Path $dest | Out-Null
 
-Write-Output "Looking up latest runs for $Repo..."
-$runs = gh run list --repo $Repo -L 20 | Select-String "^\S+\s+.+\s+CI\s+master\s+push\s+(\d+)" -AllMatches
-if (-not $runs) {
-    Write-Output "没有找到匹配的 runs，尝试 gh run list 原始输出..."
-    gh run list --repo $Repo -L 10 | Out-Host
+Write-Output "Looking up latest runs for $Repo using JSON output..."
+# Use gh CLI JSON output to safely parse run ids and conclusions
+try {
+    $runsJson = gh run list --repo $Repo --json id,conclusion -L 20 | ConvertFrom-Json
+} catch {
+    Write-Output "Failed to list runs via gh CLI (ensure gh is installed and authenticated).";
+    Write-Output $_.Exception.Message
     exit 1
 }
 
-# 尝试取第一个成功的 run id
-$runLines = gh run list --repo $Repo -L 20 | Out-String
-$runId = ($runLines -split "\r?\n" | Where-Object { $_ -match "^\S+\s+.+\s+CI\s+master\s+push\s+(\d+)" } | ForEach-Object { ($_ -replace '^\S+\s+.+\s+CI\s+master\s+push\s+','').Trim() })[0]
-if (-not $runId) {
-    Write-Output "无法解析 run id。原始列表：`n$runLines"
+if (-not $runsJson -or $runsJson.Count -eq 0) {
+    Write-Output "No runs found via gh run list --json."
     exit 1
+}
+
+# Prefer the most recent successful run, otherwise fall back to the first run
+$successful = $runsJson | Where-Object { $_.conclusion -eq 'success' }
+if ($successful -and $successful.Count -gt 0) {
+    $runId = $successful[0].id
+} else {
+    $runId = $runsJson[0].id
 }
 
 Write-Output "Downloading artifacts from run $runId into $dest..."
-gh run download $runId --repo $Repo -D $dest
+try {
+    gh run download $runId --repo $Repo -D $dest
+} catch {
+    Write-Output "gh run download failed:"
+    Write-Output $_.Exception.Message
+    exit 1
+}
 
 Write-Output "Done. Artifacts saved under: $dest"
 Write-Output "Listing files:"
