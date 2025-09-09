@@ -104,17 +104,13 @@ class GeminiClientHTTP(ModelClientBase):
         last_exc = None
         for attempt in range(1, max_attempts + 1):
             try:
-                if client_name == 'httpx':
-                    resp = client.post(url, json=payload, headers=headers, timeout=self.timeout)
-                    resp.raise_for_status()
+                # Execute POST and parse JSON safely
+                resp = client.post(url, json=payload, headers=headers, timeout=self.timeout)
+                resp.raise_for_status()
+                try:
                     data = resp.json()
-                else:
-                    resp = client.post(url, json=payload, headers=headers, timeout=self.timeout)
-                    resp.raise_for_status()
-                    try:
-                        data = resp.json()
-                    except Exception:
-                        data = resp.text
+                except Exception:
+                    data = resp.text
 
                 # If stream requested: placeholder behavior (real streaming requires SSE/HTTP/WS support)
                 if stream:
