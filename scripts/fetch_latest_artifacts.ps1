@@ -8,10 +8,10 @@ $now = Get-Date -Format "yyyyMMdd-HHmmss"
 $dest = Join-Path -Path (Get-Location) -ChildPath "gh_artifacts_$now"
 New-Item -ItemType Directory -Path $dest | Out-Null
 
-Write-Output "Looking up latest runs for $Repo using JSON output..."
+Write-Output "Looking up latest runs for $Repo using JSON output (databaseId)..."
 # Use gh CLI JSON output to safely parse run ids and conclusions
 try {
-    $runsJson = gh run list --repo $Repo --json id,conclusion -L 20 | ConvertFrom-Json
+    $runsJson = gh run list --repo $Repo --json databaseId,conclusion -L 20 | ConvertFrom-Json
 } catch {
     Write-Output "Failed to list runs via gh CLI (ensure gh is installed and authenticated).";
     Write-Output $_.Exception.Message
@@ -19,16 +19,17 @@ try {
 }
 
 if (-not $runsJson -or $runsJson.Count -eq 0) {
-    Write-Output "No runs found via gh run list --json."
+    Write-Output "No runs found via gh run list --json. Raw output for debugging:"
+    gh run list --repo $Repo -L 20 | Out-Host
     exit 1
 }
 
 # Prefer the most recent successful run, otherwise fall back to the first run
 $successful = $runsJson | Where-Object { $_.conclusion -eq 'success' }
 if ($successful -and $successful.Count -gt 0) {
-    $runId = $successful[0].id
+    $runId = $successful[0].databaseId
 } else {
-    $runId = $runsJson[0].id
+    $runId = $runsJson[0].databaseId
 }
 
 Write-Output "Downloading artifacts from run $runId into $dest..."
