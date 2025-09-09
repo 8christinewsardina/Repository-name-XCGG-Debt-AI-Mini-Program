@@ -1,0 +1,105 @@
+﻿{
+    "total_count":  1,
+    "jobs":  [
+                 {
+                     "id":  49927822276,
+                     "run_id":  17578059999,
+                     "workflow_name":  "CI",
+                     "head_branch":  "master",
+                     "run_url":  "https://api.github.com/repos/8christinewsardina/Repository-name-XCGG-Debt-AI-Mini-Program/actions/runs/17578059999",
+                     "run_attempt":  1,
+                     "node_id":  "CR_kwDOPsMdP88AAAALn-4bxA",
+                     "head_sha":  "be3483c8e07a833ca76a4007ad6eb872c38821c5",
+                     "url":  "https://api.github.com/repos/8christinewsardina/Repository-name-XCGG-Debt-AI-Mini-Program/actions/jobs/49927822276",
+                     "html_url":  "https://github.com/8christinewsardina/Repository-name-XCGG-Debt-AI-Mini-Program/actions/runs/17578059999/job/49927822276",
+                     "status":  "completed",
+                     "conclusion":  "failure",
+                     "created_at":  "2025-09-09T09:24:01Z",
+                     "started_at":  "2025-09-09T09:24:06Z",
+                     "completed_at":  "2025-09-09T09:24:31Z",
+                     "name":  "tests",
+                     "steps":  [
+                                   {
+                                       "name":  "Set up job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  1,
+                                       "started_at":  "2025-09-09T09:24:06Z",
+                                       "completed_at":  "2025-09-09T09:24:07Z"
+                                   },
+                                   {
+                                       "name":  "Run actions/checkout@v4",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  2,
+                                       "started_at":  "2025-09-09T09:24:07Z",
+                                       "completed_at":  "2025-09-09T09:24:08Z"
+                                   },
+                                   {
+                                       "name":  "Set up Python",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  3,
+                                       "started_at":  "2025-09-09T09:24:08Z",
+                                       "completed_at":  "2025-09-09T09:24:08Z"
+                                   },
+                                   {
+                                       "name":  "Install dependencies",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  4,
+                                       "started_at":  "2025-09-09T09:24:08Z",
+                                       "completed_at":  "2025-09-09T09:24:26Z"
+                                   },
+                                   {
+                                       "name":  "Run tests (pytest)",
+                                       "status":  "completed",
+                                       "conclusion":  "failure",
+                                       "number":  5,
+                                       "started_at":  "2025-09-09T09:24:26Z",
+                                       "completed_at":  "2025-09-09T09:24:30Z"
+                                   },
+                                   {
+                                       "name":  "Upload pytest output",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  6,
+                                       "started_at":  "2025-09-09T09:24:30Z",
+                                       "completed_at":  "2025-09-09T09:24:30Z"
+                                   },
+                                   {
+                                       "name":  "Post Set up Python",
+                                       "status":  "completed",
+                                       "conclusion":  "skipped",
+                                       "number":  11,
+                                       "started_at":  "2025-09-09T09:24:30Z",
+                                       "completed_at":  "2025-09-09T09:24:30Z"
+                                   },
+                                   {
+                                       "name":  "Post Run actions/checkout@v4",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  12,
+                                       "started_at":  "2025-09-09T09:24:30Z",
+                                       "completed_at":  "2025-09-09T09:24:30Z"
+                                   },
+                                   {
+                                       "name":  "Complete job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  13,
+                                       "started_at":  "2025-09-09T09:24:30Z",
+                                       "completed_at":  "2025-09-09T09:24:30Z"
+                                   }
+                               ],
+                     "check_run_url":  "https://api.github.com/repos/8christinewsardina/Repository-name-XCGG-Debt-AI-Mini-Program/check-runs/49927822276",
+                     "labels":  [
+                                    "ubuntu-latest"
+                                ],
+                     "runner_id":  1000000052,
+                     "runner_name":  "GitHub Actions 1000000052",
+                     "runner_group_id":  0,
+                     "runner_group_name":  "GitHub Actions"
+                 }
+             ]
+}

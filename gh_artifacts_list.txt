@@ -1,0 +1,7 @@
+﻿
+FullName                                                                   
+--------                                                                   
+D:\AI债务顾问所有文件\ai_financial_advisor\gh_artifacts\test-output                
+D:\AI债务顾问所有文件\ai_financial_advisor\gh_artifacts\test-output\test-output.txt
+
+

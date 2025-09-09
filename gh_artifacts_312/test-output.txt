@@ -1,0 +1,32 @@
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting run_report_test.py ______________________
+run_report_test.py:1: in <module>
+    from fastapi.testclient import TestClient
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/fastapi/__init__.py:7: in <module>
+    from .applications import FastAPI as FastAPI
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/fastapi/applications.py:16: in <module>
+    from fastapi import routing
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/fastapi/routing.py:25: in <module>
+    from fastapi import params
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/fastapi/params.py:5: in <module>
+    from fastapi.openapi.models import Example
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/fastapi/openapi/models.py:124: in <module>
+    class Schema(BaseModelWithConfig):
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydantic/main.py:286: in __new__
+    cls.__try_update_forward_refs__()
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydantic/main.py:808: in __try_update_forward_refs__
+    update_model_forward_refs(cls, cls.__fields__.values(), cls.__config__.json_encoders, localns, (NameError,))
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydantic/typing.py:554: in update_model_forward_refs
+    update_field_forward_refs(f, globalns=globalns, localns=localns)
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydantic/typing.py:520: in update_field_forward_refs
+    field.type_ = evaluate_forwardref(field.type_, globalns, localns or None)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydantic/typing.py:66: in evaluate_forwardref
+    return cast(Any, type_)._evaluate(globalns, localns, set())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: ForwardRef._evaluate() missing 1 required keyword-only argument: 'recursive_guard'
+=========================== short test summary info ============================
+ERROR run_report_test.py - TypeError: ForwardRef._evaluate() missing 1 required keyword-only argument: 'recursive_guard'
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.25s
