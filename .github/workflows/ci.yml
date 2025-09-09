@@ -23,8 +23,16 @@ jobs:
           pip install -r backend/requirements.in
       - name: Run tests (pytest)
         run: |
+          set -o pipefail
           cd backend
-          pytest -q
+          pytest -q 2>&1 | tee ../test-output.txt
+
+      - name: Upload pytest output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-output
+          path: test-output.txt
 
   gemini_integration:
     if: github.ref == 'refs/heads/main'
@@ -55,3 +63,4 @@ jobs:
         run: |
           cd backend
           python run_report_test_with_gemini.py
+  # Note: artifact upload moved into the `tests` job to ensure the file produced on the same runner is uploaded.
