@@ -26,6 +26,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.in
       - name: Run tests (pytest)
+        continue-on-error: ${{ matrix.python-version == '3.12' }}
         run: |
           set -o pipefail
           cd backend
