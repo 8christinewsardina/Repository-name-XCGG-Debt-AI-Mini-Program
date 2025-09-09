@@ -1,4 +1,10 @@
-﻿# Python
+﻿# Ignore locally downloaded artifacts and debugging outputs
+gh_artifacts*/
+*.log
+*.json
+*_tail.txt
+push_log.txt
+inspect_run.ps1# Python
 __pycache__/
 *.pyc
 
